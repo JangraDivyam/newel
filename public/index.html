@@ -40,6 +40,7 @@
             <div class="actions">
                 <button id="sendHealthyBtn" class="btn btn-primary">Simulate Healthy Data</button>
                 <button id="sendFailureBtn" class="btn btn-danger">Simulate Failure Data</button>
+                <button id="manualEntryBtn" class="btn btn-outline">Manual Entry</button>
             </div>
             
             <div class="loading-overlay" id="loadingOverlay">
@@ -47,6 +48,42 @@
                 <span>Analyzing Telemetry...</span>
             </div>
         </main>
+    </div>
+    
+    <!-- Manual Entry Modal -->
+    <div class="modal-overlay" id="manualModal">
+        <div class="modal-card card">
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+            <h3>Manual Data Entry</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">Enter the 18 statistical features below to test custom scenarios.</p>
+            
+            <form id="manualForm" class="manual-form">
+                <div class="form-grid">
+                    <!-- Sensor 1 -->
+                    <div class="input-group"><label>S1 Mean</label><input type="number" step="any" id="s1_mean" value="0.0"></div>
+                    <div class="input-group"><label>S1 Std</label><input type="number" step="any" id="s1_std" value="0.0"></div>
+                    <div class="input-group"><label>S1 Min</label><input type="number" step="any" id="s1_min" value="0.0"></div>
+                    <div class="input-group"><label>S1 Max</label><input type="number" step="any" id="s1_max" value="0.0"></div>
+                    <div class="input-group"><label>S1 Last</label><input type="number" step="any" id="s1_last" value="0.0"></div>
+                    <div class="input-group"><label>S1 Range</label><input type="number" step="any" id="s1_range" value="0.0"></div>
+                    <div class="input-group"><label>S1 Trend</label><input type="number" step="any" id="s1_trend" value="0.0"></div>
+                    <div class="input-group"><label>S1 Abs Change</label><input type="number" step="any" id="s1_change" value="0.0"></div>
+                    <div class="input-group"><label>S1 Variance</label><input type="number" step="any" id="s1_var" value="0.0"></div>
+                    
+                    <!-- Sensor 2 -->
+                    <div class="input-group"><label>S2 Mean</label><input type="number" step="any" id="s2_mean" value="0.0"></div>
+                    <div class="input-group"><label>S2 Std</label><input type="number" step="any" id="s2_std" value="0.0"></div>
+                    <div class="input-group"><label>S2 Min</label><input type="number" step="any" id="s2_min" value="0.0"></div>
+                    <div class="input-group"><label>S2 Max</label><input type="number" step="any" id="s2_max" value="0.0"></div>
+                    <div class="input-group"><label>S2 Last</label><input type="number" step="any" id="s2_last" value="0.0"></div>
+                    <div class="input-group"><label>S2 Range</label><input type="number" step="any" id="s2_range" value="0.0"></div>
+                    <div class="input-group"><label>S2 Trend</label><input type="number" step="any" id="s2_trend" value="0.0"></div>
+                    <div class="input-group"><label>S2 Abs Change</label><input type="number" step="any" id="s2_change" value="0.0"></div>
+                    <div class="input-group"><label>S2 Variance</label><input type="number" step="any" id="s2_var" value="0.0"></div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Run Prediction</button>
+            </form>
+        </div>
     </div>
     
     <script src="script.js"></script>

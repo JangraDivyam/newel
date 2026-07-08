@@ -81,4 +81,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnHealthy.addEventListener('click', () => sendData(healthyData, 'healthy'));
     btnFailure.addEventListener('click', () => sendData(failureData, 'failure'));
+
+    // Manual Entry Logic
+    const manualBtn = document.getElementById('manualEntryBtn');
+    const manualModal = document.getElementById('manualModal');
+    const closeBtn = document.getElementById('closeModalBtn');
+    const manualForm = document.getElementById('manualForm');
+
+    manualBtn.addEventListener('click', () => {
+        manualModal.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        manualModal.classList.remove('active');
+    });
+
+    // Close when clicking outside
+    manualModal.addEventListener('click', (e) => {
+        if (e.target === manualModal) {
+            manualModal.classList.remove('active');
+        }
+    });
+
+    manualForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        manualModal.classList.remove('active');
+        
+        const manualData = {
+            sensor_1_mean: parseFloat(document.getElementById('s1_mean').value) || 0,
+            sensor_1_std: parseFloat(document.getElementById('s1_std').value) || 0,
+            sensor_1_min: parseFloat(document.getElementById('s1_min').value) || 0,
+            sensor_1_max: parseFloat(document.getElementById('s1_max').value) || 0,
+            sensor_1_last: parseFloat(document.getElementById('s1_last').value) || 0,
+            sensor_1_range: parseFloat(document.getElementById('s1_range').value) || 0,
+            sensor_1_trend: parseFloat(document.getElementById('s1_trend').value) || 0,
+            sensor_1_abs_change: parseFloat(document.getElementById('s1_change').value) || 0,
+            sensor_1_variance: parseFloat(document.getElementById('s1_var').value) || 0,
+            
+            sensor_2_mean: parseFloat(document.getElementById('s2_mean').value) || 0,
+            sensor_2_std: parseFloat(document.getElementById('s2_std').value) || 0,
+            sensor_2_min: parseFloat(document.getElementById('s2_min').value) || 0,
+            sensor_2_max: parseFloat(document.getElementById('s2_max').value) || 0,
+            sensor_2_last: parseFloat(document.getElementById('s2_last').value) || 0,
+            sensor_2_range: parseFloat(document.getElementById('s2_range').value) || 0,
+            sensor_2_trend: parseFloat(document.getElementById('s2_trend').value) || 0,
+            sensor_2_abs_change: parseFloat(document.getElementById('s2_change').value) || 0,
+            sensor_2_variance: parseFloat(document.getElementById('s2_var').value) || 0
+        };
+        
+        sendData(manualData, 'manual');
+    });
 });
