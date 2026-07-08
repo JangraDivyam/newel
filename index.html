@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictive Maintenance Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="dashboard-container">
+        <header>
+            <h1>Metro Air Compressor Monitor</h1>
+            <p>Real-time predictive maintenance status based on MetroPT-3 sensor telemetry.</p>
+        </header>
+
+        <main>
+            <div class="card status-card" id="statusCard">
+                <div class="status-indicator" id="statusIndicator"></div>
+                <h2 id="statusText">System Standing By</h2>
+                <p id="probabilityText" class="probability-text">Awaiting sensor data...</p>
+                
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <span class="metric-label">Sensor 1 (Mean)</span>
+                        <span class="metric-value" id="s1_val">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Sensor 2 (Mean)</span>
+                        <span class="metric-value" id="s2_val">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="sendHealthyBtn" class="btn btn-primary">Simulate Healthy Data</button>
+                <button id="sendFailureBtn" class="btn btn-danger">Simulate Failure Data</button>
+            </div>
+            
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="spinner"></div>
+                <span>Analyzing Telemetry...</span>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

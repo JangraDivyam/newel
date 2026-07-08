@@ -36,11 +36,11 @@ class Features(BaseModel):
     sensor_2_abs_change: float = 0.0
     sensor_2_variance: float = 0.0
 
-@app.get("/")
+@app.get("/api")
 def read_root():
     return {"message": "Predictive Maintenance API is running!"}
 
-@app.post("/predict")
+@app.post("/api/predict")
 def predict(data: Features):
     if model is None:
         return {"error": "Model is not loaded."}
